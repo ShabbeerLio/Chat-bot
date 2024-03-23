@@ -1,0 +1,90 @@
+.chatbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: rgb(47, 47, 42);
+  background: linear-gradient(
+    15deg,
+    rgb(24, 24, 22) 0%,
+    rgba(228, 225, 124, 0.171) 100%
+  );
+  position: relative;
+}
+
+.chatbox-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+.chatbox-main h2{
+  margin: 0;
+}
+
+.chatbox-head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #80808021;
+    width: 100%;
+}
+
+.chatbox-head img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+
+.chatbox-head-detail{
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem ;
+}
+.chatbox-head-detail h2{
+    margin: 0;
+}
+
+.messages-received p{
+    margin: 0;
+    background: gray;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.messages-received p span{
+    font-size: 10px;
+}
+
+.message-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.message-box input {
+  outline: none;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background-color: rgb(32, 32, 32);
+  color: white;
+}
+.message-box button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  outline: none;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px ;
+  background-color: rgb(255, 255, 159);
+}
