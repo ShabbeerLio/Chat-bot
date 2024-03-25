@@ -2,13 +2,16 @@ import React, { useState } from 'react'
 import "./Home.css"
 import ChatBox from '../Components/ChatBox/ChatBox'
 import PersonData from '../Components/Data/Data';
+import Loader from '../Components/Loader/Loader';
 
 const Home = () => {
 
     const [selectedPerson, setSelectedPerson] = useState(null);
+    const [loading, setLoading] = useState(true)
 
     const handleChatItemClick = (person) => {
         setSelectedPerson(person);
+        setLoading(true);
         // Implement logic to open the chat of the selected person
         console.log(`Opening chat of ${person.name}`);
     };
@@ -31,7 +34,7 @@ const Home = () => {
                                         <img src={item.profile_picture} alt="" />
                                     </div>
                                     <div className="chatlist-item-detail">
-                                        <h5>{item.name}</h5>
+                                        <h4>{item.name}</h4>
                                         <p>{item.messages.map((items) => (items.text))} </p>
                                         <span>today</span>
                                     </div>
@@ -41,7 +44,13 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="home-chatbox">
-                    {selectedPerson ? (<ChatBox person={selectedPerson} />
+
+                    {selectedPerson ? (
+                        <>
+                        {/* {loading && <Loader />} */}
+                    <ChatBox person={selectedPerson} />
+                        </>
+                    
                     ) : (
                         <>
                             <div className='chatbox-main'>
