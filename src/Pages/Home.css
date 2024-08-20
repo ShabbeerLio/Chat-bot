@@ -1,77 +1,149 @@
-.home-main{
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    background-color: black;
-    color: white;
-    overflow: hidden;
+.home-main {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-color: #141414;
+  color: white;
+  overflow: hidden;
 }
 
-.home-sidebar{
-    padding: 2rem;
-    width: 30%;
-    height: 100%;
+.home-sidebar {
+  /* padding: 1rem; */
+  width: 30%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.sidebar-left {
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 0 8px 8px 0;
+  background-color: black;
+ 
+}
+
+.side-left-top {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.side-left-top svg {
+  font-size: 25px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.side-bottom-profile img {
+  object-fit: cover;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.side-left-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.side-left-bottom svg {
+  font-size: 25px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.side-bottom-phbook {
+  position: absolute;
+  right: 5%;
+  bottom: 2%;
+  z-index: 99;
+}
+.side-bottom-phbook svg {
+  background-color: #f6f8c6;
+  color: black;
+  padding: 1rem;
+  border-radius: 25%;
+  margin: 0;
 }
 
 /* ..........sidebar..................... */
 
-.sidebar-chatlist {
-    height: 90vh; 
-    overflow-y: auto; 
-    scrollbar-width: none; 
-    -ms-overflow-style: none;
-  }
-  
-  .sidebar-chatlist::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .chatlist-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 1rem 0;
-  }
-  
-  .chatlist-item-image{
-      width: 18%;
-  }
-  .chatlist-item img {
-    background-color: gray;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .chatlist-item-detail {
-    /* padding: 1rem; */
-    position: relative;
-    width: 82%;
-    /* margin-left: 20px; */
-  }
-  .chatlist-item-detail span {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: gray;
-  }
-  
-  .chatlist-item-detail h4 {
-    margin: 0;
-    font-size: 18px;
-  }
-  .chatlist-item-detail p {
-    margin: 0;
-    padding-top: 10px;
-    font-size: 12px;
-  }
-  
-/* ..........chatbox..................... */
-.home-chatbox{
-    background-color: rgb(31, 31, 31);
-    /* padding: 1rem; */
-    width: 70%;
-    height: 100%;
+.sidebar {
+  width: 85%;
+  background-color: #141414;
+  padding: 1rem;
 }
 
+.sidebar-heading h1{
+  margin: .5rem 0;
+  font-size: 25px;
+}
+
+.sidebar-chatlist {
+  height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-top-left-radius: 8px;
+}
+
+.sidebar-chatlist::-webkit-scrollbar {
+  display: none;
+}
+
+.chatlist-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.chatlist-item-image {
+  width: 18%;
+}
+.chatlist-item img {
+  background-color: gray;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chatlist-item-detail {
+  /* padding: 1rem; */
+  position: relative;
+  width: 82%;
+  /* margin-left: 20px; */
+}
+.chatlist-item-detail span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: gray;
+}
+
+.chatlist-item-detail h4 {
+  margin: 0;
+  font-size: 16px;
+}
+.chatlist-item-detail p {
+  margin: 0;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+/* ..........chatbox..................... */
+.home-chatbox {
+  background-color: rgb(31, 31, 31);
+  /* padding: 1rem; */
+  width: 70%;
+  height: 100%;
+}

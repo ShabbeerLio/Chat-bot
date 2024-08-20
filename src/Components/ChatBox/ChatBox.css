@@ -4,9 +4,11 @@
   justify-content: center;
   height: 100%;
   background: rgb(47, 47, 42);
-  background: linear-gradient(15deg,
-      rgb(24, 24, 22) 0%,
-      rgba(228, 225, 124, 0.171) 100%);
+  background: linear-gradient(
+    15deg,
+    rgb(24, 24, 22) 0%,
+    rgba(228, 225, 124, 0.171) 100%
+  );
   position: relative;
 }
 
@@ -26,7 +28,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #80808021;
+  background-color: #141414;
+  border-left: 1px solid #252525;
   width: 100%;
 }
 
@@ -41,7 +44,7 @@
 .chatbox-head-detail {
   display: flex;
   align-items: center;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .chatbox-head-detail h2 {
@@ -71,11 +74,21 @@
   margin: 0;
   background: gray;
   padding: 10px 18px;
-  margin: 5px 0px;
-  border-radius: 5px;
+  margin: 5px 0px 5px 10px;
+  border-radius: 10px;
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
+  position: relative;
+}
+.messages-received .boxess:first-child p:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -5%;
+  border-left: 15px solid transparent;
+  border-top: 20px solid gray;
+  z-index: 0;
 }
 
 .messages-received p span {
@@ -99,8 +112,18 @@
   background: #f6f8c6;
   color: black;
   padding: 10px 18px;
-  margin: 5px 0px;
-  border-radius: 5px;
+  margin: 5px 12px 5px 0px;
+  border-radius: 10px;
+  position: relative;
+}
+.messages-sent .boxess:first-child p:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: -6%;
+  border-right: 15px solid transparent;
+  border-top: 20px solid #f6f8c6;
+  z-index: 0;
 }
 
 .messages-sent p span {
@@ -136,4 +159,3 @@
   border-radius: 5px;
   background-color: rgb(255, 255, 159);
 }
-
