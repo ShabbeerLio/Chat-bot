@@ -9,6 +9,8 @@ import Sidebar from '../Components/Sidebar/Sidebar';
 import SideCalls from '../Components/Sidebar/SideCalls';
 import Setting from '../Components/Sidebar/Setting';
 import SideContact from '../Components/Sidebar/SideContact';
+import PersonalData from '../Components/Data/Personal';
+import ContactData from '../Components/Data/Contact';
 
 const Home = () => {
     const sData = [
@@ -94,13 +96,13 @@ const Home = () => {
                             {selectedTab === 2 && Calls.map((item) => (
                                 <SideCalls item={item} handleChatItemClick={handleChatItemClick} />
                             ))}
-                            {selectedTab === 3 && PersonData.map((item) => (
+                            {selectedTab === 3 && PersonalData.map((item) => (
                                 <Setting item={item} handleChatItemClick={handleChatItemClick} />
                             ))}
-                            {selectedTab === 4 && Calls.map((item) => (
+                            {selectedTab === 4 && PersonalData.map((item) => (
                                 <Setting item={item} handleChatItemClick={handleChatItemClick} />
                             ))}
-                            {selectedTab === 5 && PersonData.map((item) => (
+                            {selectedTab === 5 && ContactData.map((item) => (
                                 <SideContact item={item} handleChatItemClick={handleChatItemClick} />
                             ))}
                         </div>

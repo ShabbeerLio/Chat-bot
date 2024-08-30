@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./ChatBox.css";
+import { IoIosSend } from "react-icons/io";
+import { IoIosVideocam, IoMdCall, IoIosInformationCircle } from "react-icons/io";
+
 
 const ChatBox = ({ person }) => {
   const [isChatAvailable, setIsChatAvailable] = useState(true);
@@ -30,7 +33,7 @@ const ChatBox = ({ person }) => {
       }
     }
   };
-  
+
 
   return (
     <div className="chatbox">
@@ -38,8 +41,15 @@ const ChatBox = ({ person }) => {
         <div className="chatbox-chat">
           <div className="chatbox-head">
             <div className="chatbox-head-detail">
-              <img src={person.profile_picture} alt="" />
-              <h2>{person.name}</h2>
+              <div className="chatbox-head-item">
+                <img src={person.profile_picture} alt="" />
+                <h2>{person.name}</h2>
+              </div>
+              <div className="chatbox-head-item">
+                <p><IoMdCall /></p>
+                <p><IoIosVideocam /></p>
+                <p><IoIosInformationCircle /></p>
+              </div>
             </div>
           </div>
           <div className="messanger-box">
@@ -47,10 +57,10 @@ const ChatBox = ({ person }) => {
             <div className="messages-received">
               {person.messages.map((msg, index) => (
                 <div className="boxess">
-                <p key={index}>
-                  {msg.text}
-                  <span>{msg.timestamp}</span>
-                </p>
+                  <p key={index}>
+                    {msg.text}
+                    <span>{msg.timestamp}</span>
+                  </p>
                 </div>
               ))}
             </div>
@@ -77,7 +87,7 @@ const ChatBox = ({ person }) => {
               onChange={handleMessageChange}
               onKeyDown={handleKeyDown}
             />
-            <button onClick={sendMessage}>Send</button>
+            <button onClick={sendMessage}><IoIosSend /></button>
           </div>
         </div>
       ) : (

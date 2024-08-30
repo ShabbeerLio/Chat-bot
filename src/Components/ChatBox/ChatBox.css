@@ -44,11 +44,23 @@
 .chatbox-head-detail {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
+}
+
+.chatbox-head-item {
+  display: flex;
+  align-items: center;
 }
 
 .chatbox-head-detail h2 {
   margin: 0;
+}
+
+.chatbox-head-item svg {
+  font-size: 30px;
+  margin-left: 1.5rem;
+  cursor: pointer;
 }
 
 .messanger-box {
@@ -60,8 +72,7 @@
 }
 
 /* .messages-received {
-  position: absolute;
-  left: 0;
+  width: 50%;
 } */
 
 .messages-received .boxess {
@@ -69,43 +80,49 @@
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
+  position: relative;
 }
 .messages-received p {
   margin: 0;
-  background: gray;
+  background: rgb(70, 70, 70);
   padding: 10px 18px;
   margin: 5px 0px 5px 10px;
   border-radius: 10px;
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
-  position: relative;
+ 
 }
 .messages-received .boxess:first-child p:after {
   position: absolute;
   content: "";
-  top: 0;
-  left: -5%;
-  border-left: 15px solid transparent;
-  border-top: 20px solid gray;
+  top: 5px;
+  left: 0%;
+  border-left: 25px solid transparent;
+  border-top: 25px solid rgb(70, 70, 70);
   z-index: 0;
 }
 
 .messages-received p span {
-  font-size: 10px;
-  margin-left: 10px;
+  font-size: 12px;
+  margin-left: 20px;
+  color: #aaaaaa;
+  font-weight: 500;
 }
 
-/* .messages-sent{
-  position: absolute;
-  right: 0;
-} */
+.messages-sent {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
 
 .messages-sent .boxess {
+  width: 50%;
   border-radius: 5px;
   display: flex;
   align-items: baseline;
   justify-content: flex-end;
+  position: relative;
 }
 .messages-sent p {
   margin: 0;
@@ -114,26 +131,27 @@
   padding: 10px 18px;
   margin: 5px 12px 5px 0px;
   border-radius: 10px;
-  position: relative;
 }
 .messages-sent .boxess:first-child p:after {
   position: absolute;
   content: "";
-  top: 0;
-  right: -6%;
-  border-right: 15px solid transparent;
-  border-top: 20px solid #f6f8c6;
+  top: 5px;
+  right: 0%;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #f6f8c6;
   z-index: 0;
 }
 
 .messages-sent p span {
-  font-size: 10px;
-  margin-right: 10px;
+  font-size: 12px;
+  margin-left: 20px;
+  color: #777777;
+  font-weight: 500;
 }
 
 .message-box {
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   left: 0;
   display: flex;
   align-items: center;
@@ -143,19 +161,27 @@
 .message-box input {
   outline: none;
   padding: 15px 20px;
+  margin: 0 5px;
   width: 100%;
+  border-radius: 50px;
   border: none;
-  background-color: rgb(32, 32, 32);
+  background-color: rgb(49, 49, 49);
   color: white;
 }
 
 .message-box button {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 5px;
   outline: none;
-  padding: 15px 25px;
+  padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
   background-color: rgb(255, 255, 159);
+  display: flex;
+  cursor: pointer;
+}
+.message-box button svg {
+  font-size: 30px;
 }

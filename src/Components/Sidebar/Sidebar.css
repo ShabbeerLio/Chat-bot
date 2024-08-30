@@ -1,0 +1,90 @@
+.call-type svg {
+  font-size: 25px;
+}
+
+.call-status svg {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* ---------  setting ----------- */
+
+.setting-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.setting-top-img {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.setting-top img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 2/2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.setting-top svg {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  font-size: 20px;
+  opacity: 0;
+  cursor: pointer;
+}
+.setting-top-img:hover svg {
+  opacity: 1;
+}
+.setting-top-img:hover img {
+  filter: brightness(50%);
+}
+
+.setting-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.setting-detail h2 {
+  margin: 1rem 0 0.8rem 0;
+}
+.setting-detail h2 svg {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.setting-detail p {
+  margin: 0;
+  padding-top: 8px;
+}
+.setting-detail p svg {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.setting-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.setting-logout p {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(49, 49, 49);
+  border-radius: 8px;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+.setting-logout svg {
+  margin-left: 1rem;
+}

@@ -1,4 +1,8 @@
 import React from 'react'
+import "./Sidebar.css"
+import { IoIosVideocam, IoMdCall } from "react-icons/io";
+import { MdOutlineCallReceived, MdOutlineCallMade, MdOutlineCallMissed } from "react-icons/md";
+
 
 const SideCalls = ({ item, handleChatItemClick }) => {
     return (
@@ -11,8 +15,20 @@ const SideCalls = ({ item, handleChatItemClick }) => {
             </div>
             <div className="chatlist-item-detail">
                 <h4>{item.name}</h4>
-                <p>{item.messages.map((msg) => (msg.text))}</p>
-                <span>today</span>
+                <p className='call-status'>
+                    {item.status === "receive" ? (
+                        <MdOutlineCallReceived color='green'/>
+                    ) : item.status === "missed" ? (
+                        <MdOutlineCallMissed color='red'/>
+                    ) : (
+                        <MdOutlineCallMade color='green'/>
+                    )}{item.callStatus}
+                </p>
+                <span className='call-type'>{item.callType == "call" ? (
+                    <IoMdCall />
+                ) : (
+                    <IoIosVideocam />
+                )}</span>
             </div>
         </div>
     )

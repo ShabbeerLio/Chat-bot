@@ -136,8 +136,10 @@
 }
 .chatlist-item-detail p {
   margin: 0;
-  padding-top: 10px;
+  padding-top: 6px;
   font-size: 12px;
+  display: flex;
+  align-items: center;
 }
 
 /* ..........chatbox..................... */
