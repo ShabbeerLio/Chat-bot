@@ -8,6 +8,7 @@ import {
 } from "react-icons/io";
 import { FaKeyboard } from "react-icons/fa";
 import { TbPhotoVideo } from "react-icons/tb";
+import Typing from "../Loader/Typing";
 
 const ChatBox = ({ person }) => {
   const [isChatAvailable, setIsChatAvailable] = useState(true);
@@ -86,6 +87,7 @@ const ChatBox = ({ person }) => {
                 </div>
               ))}
             </div>
+            <Typing />
           </div>
 
           {/* Message box */}
@@ -99,11 +101,11 @@ const ChatBox = ({ person }) => {
                 onChange={handleMessageChange}
                 onKeyDown={handleKeyDown}
               />
-              <TbPhotoVideo/>
+              <TbPhotoVideo />
             </div>
-              <button onClick={sendMessage}>
-                <IoSend />
-              </button>
+            <button onClick={sendMessage}>
+              <IoSend />
+            </button>
           </div>
         </div>
       ) : (
