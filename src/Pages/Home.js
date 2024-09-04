@@ -11,6 +11,7 @@ import Setting from '../Components/Sidebar/Setting';
 import SideContact from '../Components/Sidebar/SideContact';
 import PersonalData from '../Components/Data/Personal';
 import ContactData from '../Components/Data/Contact';
+import SkeletonLoader from '../Components/Loader/SkeletonLoader';
 
 const Home = () => {
     const sData = [
@@ -43,24 +44,23 @@ const Home = () => {
 
     const [selectedTab, setSelectedTab] = useState(sData[0].id); // Default to first tab
     const [selectedPerson, setSelectedPerson] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-    // useEffect(() => {
-    //     setLoading(true);
-    //     // Simulate loading time for data
-    //     setTimeout(() => setLoading(false), 1000);
-    // }, [selectedTab]);
-
+    
     const handleIconClick = (id) => {
         setSelectedTab(id);
         setSelectedPerson(null); // Reset selected person when changing tabs
     };
-
+    
     const handleChatItemClick = (person) => {
         setSelectedPerson(person);
-        setLoading(true);
         console.log(`Opening chat of ${person.name}`);
     };
+    useEffect(() => {
+        setLoading(true);
+        // Simulate loading time for data
+        setTimeout(() => setLoading(false), 1000);
+    }, [selectedTab]);
 
     return (
         <div className='home'>
@@ -90,21 +90,27 @@ const Home = () => {
                             <h1>{sData.find(item => item.id === selectedTab)?.title}</h1>
                         </div>
                         <div className="sidebar-chatlist">
-                            {selectedTab === 1 && PersonData.map((item) => (
-                                <Sidebar item={item} handleChatItemClick={handleChatItemClick} />
-                            ))}
-                            {selectedTab === 2 && Calls.map((item) => (
-                                <SideCalls item={item} handleChatItemClick={handleChatItemClick} />
-                            ))}
-                            {selectedTab === 3 && PersonalData.map((item) => (
-                                <Setting item={item} handleChatItemClick={handleChatItemClick} />
-                            ))}
-                            {selectedTab === 4 && PersonalData.map((item) => (
-                                <Setting item={item} handleChatItemClick={handleChatItemClick} />
-                            ))}
-                            {selectedTab === 5 && ContactData.map((item) => (
-                                <SideContact item={item} handleChatItemClick={handleChatItemClick} />
-                            ))}
+                            {loading ? (
+                                <SkeletonLoader />
+                            ) : (
+                                <>
+                                    {selectedTab === 1 && PersonData.map((item) => (
+                                        <Sidebar item={item} handleChatItemClick={handleChatItemClick} />
+                                    ))}
+                                    {selectedTab === 2 && Calls.map((item) => (
+                                        <SideCalls item={item} handleChatItemClick={handleChatItemClick} />
+                                    ))}
+                                    {selectedTab === 3 && PersonalData.map((item) => (
+                                        <Setting item={item} handleChatItemClick={handleChatItemClick} />
+                                    ))}
+                                    {selectedTab === 4 && PersonalData.map((item) => (
+                                        <Setting item={item} handleChatItemClick={handleChatItemClick} />
+                                    ))}
+                                    {selectedTab === 5 && ContactData.map((item) => (
+                                        <SideContact item={item} handleChatItemClick={handleChatItemClick} />
+                                    ))}
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

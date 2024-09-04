@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "./ChatBox.css";
-import { IoIosSend } from "react-icons/io";
-import { IoIosVideocam, IoMdCall, IoIosInformationCircle } from "react-icons/io";
-
+import { IoSend } from "react-icons/io5";
+import {
+  IoIosVideocam,
+  IoMdCall,
+  IoIosInformationCircle,
+} from "react-icons/io";
+import { FaKeyboard } from "react-icons/fa";
+import { TbPhotoVideo } from "react-icons/tb";
 
 const ChatBox = ({ person }) => {
   const [isChatAvailable, setIsChatAvailable] = useState(true);
@@ -34,7 +39,6 @@ const ChatBox = ({ person }) => {
     }
   };
 
-
   return (
     <div className="chatbox">
       {person ? (
@@ -46,9 +50,15 @@ const ChatBox = ({ person }) => {
                 <h2>{person.name}</h2>
               </div>
               <div className="chatbox-head-item">
-                <p><IoMdCall /></p>
-                <p><IoIosVideocam /></p>
-                <p><IoIosInformationCircle /></p>
+                <p>
+                  <IoMdCall />
+                </p>
+                <p>
+                  <IoIosVideocam />
+                </p>
+                <p>
+                  <IoIosInformationCircle />
+                </p>
               </div>
             </div>
           </div>
@@ -80,14 +90,20 @@ const ChatBox = ({ person }) => {
 
           {/* Message box */}
           <div className="message-box">
-            <input
-              type="text"
-              placeholder="Type your message..."
-              value={message}
-              onChange={handleMessageChange}
-              onKeyDown={handleKeyDown}
-            />
-            <button onClick={sendMessage}><IoIosSend /></button>
+            <div className="message-box-input">
+              <FaKeyboard />
+              <input
+                type="text"
+                placeholder="Type your message..."
+                value={message}
+                onChange={handleMessageChange}
+                onKeyDown={handleKeyDown}
+              />
+              <TbPhotoVideo/>
+            </div>
+              <button onClick={sendMessage}>
+                <IoSend />
+              </button>
           </div>
         </div>
       ) : (

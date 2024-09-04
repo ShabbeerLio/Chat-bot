@@ -121,7 +121,7 @@
   /* padding: 1rem; */
   position: relative;
   width: 82%;
-  /* margin-left: 20px; */
+  margin-left: 15px;
 }
 .chatlist-item-detail span {
   position: absolute;

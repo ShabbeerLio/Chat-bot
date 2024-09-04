@@ -58,7 +58,7 @@
 }
 
 .chatbox-head-item svg {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 1.5rem;
   cursor: pointer;
 }
@@ -158,12 +158,31 @@
   width: 100%;
 }
 
+.message-box-input{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.message-box-input svg{
+  position: absolute;
+  left: 2%;
+  font-size: 20px;
+}
+.message-box-input :nth-child(3){
+  position: absolute;
+  right: 7%;
+  left: auto;
+  font-size: 28px;
+  cursor: pointer;
+}
+
 .message-box input {
   outline: none;
-  padding: 15px 20px;
+  padding: 15px 50px;
   margin: 0 5px;
-  width: 100%;
-  border-radius: 50px;
+  width: 83%;
+  border-radius: 10px;
   border: none;
   background-color: rgb(49, 49, 49);
   color: white;
@@ -174,14 +193,14 @@
   bottom: 0;
   right: 5px;
   outline: none;
-  padding: 10px;
+  padding: 13px;
   border: none;
-  border-radius: 50%;
+  border-radius: 25%;
   aspect-ratio: 1/1;
-  background-color: rgb(255, 255, 159);
+  background-color: #f6f8c6;
   display: flex;
   cursor: pointer;
 }
 .message-box button svg {
-  font-size: 30px;
+  font-size: 20px;
 }
