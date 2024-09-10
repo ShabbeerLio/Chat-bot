@@ -9,6 +9,9 @@ import {
 import { FaKeyboard } from "react-icons/fa";
 import { TbPhotoVideo } from "react-icons/tb";
 import Typing from "../Loader/Typing";
+import Timeline from "../Message/Timeline";
+import TextMsg from "../Message/TextMsg";
+import ImgMessage from "../Message/ImgMessage";
 
 const ChatBox = ({ person }) => {
   const [isChatAvailable, setIsChatAvailable] = useState(true);
@@ -64,29 +67,37 @@ const ChatBox = ({ person }) => {
             </div>
           </div>
           <div className="messanger-box">
-            {/* Display received messages */}
-            <div className="messages-received">
-              {person.messages.map((msg, index) => (
-                <div className="boxess">
-                  <p key={index}>
-                    {msg.text}
-                    <span>{msg.timestamp}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
+            {person.messages.map((msg, index) => {
+              switch (msg.type) {
+                case "divider":
+                  // timeline
+                  return <Timeline item={msg} />;
+                case "msg":
+                  switch (msg.subtype) {
+                    case "img":
+                      // image msg
+                      return <ImgMessage item={msg}/>
+                    case "doc":
+                      // doc msg
+                      break;
+                    case "link":
+                      // link msg
+                      break;
+                    case "reply":
+                      // reply msg
+                      break;
 
-            {/* Display sent messages */}
-            <div className="messages-sent">
-              {sentMessagesList.map((msg, index) => (
-                <div className="boxess">
-                  <p key={index}>
-                    {msg}
-                    <span>5:00</span>
-                  </p>
-                </div>
-              ))}
-            </div>
+                    default:
+                      // text msg
+                      return <TextMsg item={msg} />;
+                  }
+                  break;
+
+                default:
+                  return <></>;
+                  break;
+              }
+            })}
             <Typing />
           </div>
 
