@@ -12,6 +12,9 @@ import Typing from "../Loader/Typing";
 import Timeline from "../Message/Timeline";
 import TextMsg from "../Message/TextMsg";
 import ImgMessage from "../Message/ImgMessage";
+import ReplyMessage from "../Message/ReplyMessage";
+import LinkMessage from "../Message/LinkMessage";
+import DocMessage from "../Message/DocMessage";
 
 const ChatBox = ({ person }) => {
   const [isChatAvailable, setIsChatAvailable] = useState(true);
@@ -76,16 +79,16 @@ const ChatBox = ({ person }) => {
                   switch (msg.subtype) {
                     case "img":
                       // image msg
-                      return <ImgMessage item={msg}/>
+                      return <ImgMessage item={msg} />;
                     case "doc":
                       // doc msg
-                      break;
+                      return <DocMessage item={msg} />;
                     case "link":
                       // link msg
-                      break;
+                      return <LinkMessage item={msg} />;
                     case "reply":
                       // reply msg
-                      break;
+                      return <ReplyMessage item={msg} />;
 
                     default:
                       // text msg

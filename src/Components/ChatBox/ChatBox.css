@@ -2,13 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   height: 100%;
-  background: rgb(47, 47, 42);
-  background: linear-gradient(
-    15deg,
-    rgb(24, 24, 22) 0%,
-    rgba(228, 225, 124, 0.171) 100%
-  );
+  background-image: conic-gradient(from 0deg, #4c4d3d, black, #4c4d3d);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: #f6f8c6;
   position: relative;
 }
 
@@ -66,11 +65,11 @@
 
 .messanger-box {
   position: absolute;
-  /* height: 100%; */
+  height: 87%;
   width: 100%;
   left: 0;
   bottom: 4%;
-  /* overflow: auto; */
+  overflow: auto;
 }
 
 /* .messages-received {

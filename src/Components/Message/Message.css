@@ -17,6 +17,34 @@
 
 /* .........textmsg............ */
 
+/* ..........reply.............. */
+.boxess.img-box-left .reply {
+    position: relative;
+    width: 90%;
+    background: rgb(122, 122, 122);
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.boxess.img-box-right .reply {
+    position: relative;
+    width: 90%;
+    background: #dbddaf;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: black;
+}
+
 /* ..........imgmessage........... */
 .boxess img {
     width: 100%;
@@ -38,15 +66,6 @@
     justify-content: flex-start;
     flex-direction: column;
 }
-/* .boxess.img-box-left:first-child:after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: -3%;
-    border-left: 25px solid transparent;
-    border-top: 25px solid rgb(70, 70, 70);
-    z-index: 0;
-  } */
 
 .boxess.img-box-left h5 {
     margin: 10px 0 0 0;
@@ -61,6 +80,7 @@
     color: #aaaaaa;
     font-weight: 500;
 }
+
 .boxess.img-box-right {
     position: relative;
     width: 30%;
@@ -73,15 +93,6 @@
     justify-content: flex-start;
     flex-direction: column;
 }
-/* .boxess.img-box-right:first-child:after {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: -3%;
-    border-right: 25px solid transparent;
-    border-top: 25px solid #f6f8c6;
-    z-index: 0;
-  } */
 
 .boxess.img-box-right h5 {
     margin: 10px 0 0 0;
@@ -96,4 +107,86 @@
     /* margin-left: 20px; */
     color: #aaaaaa;
     font-weight: 500;
+}
+
+/* .............Link............ */
+.boxess.img-box-left .link {
+    max-height: 100px;
+}
+
+.boxess.img-box-right .link {
+    max-height: 100px;
+}
+
+.boxess.img-box-left .link-box {
+    display: grid;
+    grid-template-columns: 40% 50%;
+    gap: 1rem;
+    /* padding: 10px; */
+    border-radius: 5px;
+    background-color: rgb(122, 122, 122);
+}
+
+.boxess.img-box-right .link-box {
+    display: grid;
+    grid-template-columns: 40% 50%;
+    gap: 1rem;
+    /* padding: 10px; */
+    border-radius: 5px;
+    background-color: #dbddaf;
+}
+
+.link-box img {
+    width: 100%;
+    border-radius: 5px 0px 0px 5px;
+}
+
+/* ............doc......... */
+.messages-received .doc-box {
+    display: flex;
+    justify-content: space-between;
+    /* grid-template-columns: 15% 60% 20%; */
+    border-radius: 5px;
+    background-color: rgb(122, 122, 122);
+    width: 85%;
+    align-items: center;
+    padding: 15px;
+}
+.messages-received .doc-box h3{
+    margin: 0;
+    font-size: 30px;
+    color: white;
+}
+.messages-received .doc-box button{
+    margin: 0 !important;
+    color: white;
+}
+
+.messages-sent .doc-box {
+    display: flex;
+    justify-content: space-between;
+    /* grid-template-columns: 15% 60% 20%; */
+    border-radius: 5px;
+    background-color: #dbddaf;
+    width: 85%;
+    align-items: center;
+    padding: 15px;
+}
+.messages-sent .doc-box h3{
+    margin: 0;
+    font-size: 30px;
+    color: black;
+}
+.doc-box h5{
+    margin: 0 !important;
+}
+.doc-box button{
+    border-radius: 50%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    font-size: 25px;
 }
