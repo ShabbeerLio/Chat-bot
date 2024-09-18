@@ -1,7 +1,8 @@
 import React from "react";
 import "./Message.css";
-import { FaFilePdf } from "react-icons/fa6";
 import { IoMdDownload } from "react-icons/io";
+import { LuFile } from "react-icons/lu";
+
 
 
 const DocMessage = ({ item }) => {
@@ -11,7 +12,7 @@ const DocMessage = ({ item }) => {
         <div className="messages-received">
           <div className="boxess img-box-left">
             <div className="doc-box">
-                <h3><FaFilePdf /></h3>
+                <h3><LuFile /></h3>
               <h5>this is the title of the link</h5>
               <button><IoMdDownload/></button>
             </div>
@@ -23,7 +24,7 @@ const DocMessage = ({ item }) => {
         <div className="messages-sent">
           <div className="boxess img-box-right">
             <div className="doc-box">
-            <h3><FaFilePdf /></h3>
+            <h3><LuFile /></h3>
               <h5>this is the title of the link</h5>
               <button><IoMdDownload/></button>
             </div>

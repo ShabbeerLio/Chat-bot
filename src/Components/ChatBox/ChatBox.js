@@ -15,6 +15,7 @@ import ImgMessage from "../Message/ImgMessage";
 import ReplyMessage from "../Message/ReplyMessage";
 import LinkMessage from "../Message/LinkMessage";
 import DocMessage from "../Message/DocMessage";
+import MenuBox from "./MenuBox";
 
 const ChatBox = ({ person }) => {
   const [isChatAvailable, setIsChatAvailable] = useState(true);
@@ -45,6 +46,14 @@ const ChatBox = ({ person }) => {
       }
     }
   };
+
+  const [menu, setMenu] = useState(false);
+
+  const menuOpen = () => {
+    setMenu((prevMenu) => !prevMenu);
+  };
+
+  console.log(menu);
 
   return (
     <div className="chatbox">
@@ -98,7 +107,6 @@ const ChatBox = ({ person }) => {
 
                 default:
                   return <></>;
-                  break;
               }
             })}
             <Typing />
@@ -115,8 +123,9 @@ const ChatBox = ({ person }) => {
                 onChange={handleMessageChange}
                 onKeyDown={handleKeyDown}
               />
-              <TbPhotoVideo />
+              <TbPhotoVideo onClick={menuOpen} />
             </div>
+            <MenuBox isActive={menu} />
             <button onClick={sendMessage}>
               <IoSend />
             </button>

@@ -14,14 +14,18 @@ const SideCalls = ({ item, handleChatItemClick }) => {
                 <img src={item.profile_picture} alt="" />
             </div>
             <div className="chatlist-item-detail">
-                <h4>{item.name}</h4>
+                {item.status === "missed" ? (
+                    <h4 className='red'>{item.name}</h4>
+                ) : (
+                    <h4>{item.name}</h4>
+                )}
                 <p className='call-status'>
                     {item.status === "receive" ? (
-                        <MdOutlineCallReceived color='green'/>
+                        <MdOutlineCallReceived color='green' />
                     ) : item.status === "missed" ? (
-                        <MdOutlineCallMissed color='red'/>
+                        <MdOutlineCallMissed className='red' />
                     ) : (
-                        <MdOutlineCallMade color='green'/>
+                        <MdOutlineCallMade color='green' />
                     )}{item.callStatus}
                 </p>
                 <span className='call-type'>{item.callType == "call" ? (
