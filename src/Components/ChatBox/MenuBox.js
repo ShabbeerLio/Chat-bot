@@ -1,13 +1,13 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "./ChatBox.css";
 import { IoPerson } from "react-icons/io5";
 import { FaPhotoVideo } from "react-icons/fa";
 import { IoIosCamera } from "react-icons/io";
 import { FaFile } from "react-icons/fa6";
 
-const MenuBox = ({isActive}) => {
+const MenuBox = forwardRef(({ isActive }, ref) => {
   return (
-    <div className={`menubox ${isActive ? 'active' : ''}`}>
+    <div ref={ref} className={`menubox ${isActive ? 'active' : ''}`}>
       <div className="menubox-box">
         <div className="menu-card">
           <p>
@@ -36,6 +36,6 @@ const MenuBox = ({isActive}) => {
       </div>
     </div>
   );
-};
+});
 
 export default MenuBox;

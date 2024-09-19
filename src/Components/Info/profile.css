@@ -1,0 +1,42 @@
+.CalIInfo.active,
+.ProfileInfo.active{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color: #141414;
+    border-radius: 8px;
+    padding: 1rem;
+    z-index: 2;
+    transition: all 0.3s ease-out;
+    height: 100%;
+    width: 97%;
+  }
+.CalIInfo,
+.ProfileInfo{
+    position: absolute;
+    top: -115%;
+    right: 8%;
+    background-color: #141414;
+    border-radius: 8px;
+    padding: 0rem;
+    z-index: 2;
+    transition: all 0.3s ease-out;
+    height: 0%;
+    width: 0%;
+  }
+
+  /* .............profile........... */
+  .profileinfo-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .profileinfo-image img{
+    width: 100%;
+    border-radius: 25%;
+    width: 40%;
+    aspect-ratio: 2/2;
+    object-fit: cover;
+  }
