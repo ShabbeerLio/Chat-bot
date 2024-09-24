@@ -73,7 +73,7 @@ cursor: pointer;
   flex-direction: column;
   border-radius: 25px;
   border: 1px solid #f6f8c6;
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   width: 50%;
   cursor: pointer;
 }
@@ -84,7 +84,7 @@ cursor: pointer;
 }
 
 .profileinfo-call-card svg {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .profileinfo-gallery-head {

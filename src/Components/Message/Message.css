@@ -20,7 +20,7 @@
 /* ..........reply.............. */
 .boxess.img-box-left .reply {
     position: relative;
-    width: 90%;
+    width: 100%;
     background: rgb(122, 122, 122);
     padding: 10px;
     margin: 0;
@@ -33,7 +33,7 @@
 
 .boxess.img-box-right .reply {
     position: relative;
-    width: 90%;
+    width: 100%;
     background: #dbddaf;
     padding: 10px;
     margin: 0;
@@ -69,7 +69,7 @@
 
 .boxess.img-box-left h5 {
     margin: 10px 0 0 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
 }
 
@@ -99,7 +99,7 @@
 .boxess.img-box-right h5 {
     margin: 10px 0 0 0;
     color: black;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
 }
 
@@ -152,16 +152,22 @@
     /* grid-template-columns: 15% 60% 20%; */
     border-radius: 5px;
     background-color: rgb(122, 122, 122);
-    width: 85%;
+    width: 100%;
     align-items: center;
     padding: 15px;
 }
-.messages-received .doc-box h3{
+
+.messages-received .doc-box h3 {
     margin: 0;
     font-size: 30px;
     color: white;
 }
-.messages-received .doc-box button{
+
+.messages-received .doc-box h3 svg {
+    margin-right: 10px;
+}
+
+.messages-received .doc-box button {
     margin: 0 !important;
     color: white;
 }
@@ -172,19 +178,26 @@
     /* grid-template-columns: 15% 60% 20%; */
     border-radius: 5px;
     background-color: #dbddaf;
-    width: 85%;
+    width: 100%;
     align-items: center;
     padding: 15px;
 }
-.messages-sent .doc-box h3{
+
+.messages-sent .doc-box h3 {
     margin: 0;
     font-size: 30px;
     color: black;
 }
-.doc-box h5{
+
+.messages-sent .doc-box h3 svg {
+    margin-right: 10px;
+}
+
+.doc-box h5 {
     margin: 0 !important;
 }
-.doc-box button{
+
+.doc-box button {
     border-radius: 50%;
     border: none;
     width: 40px;
