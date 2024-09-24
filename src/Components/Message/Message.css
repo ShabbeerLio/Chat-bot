@@ -69,6 +69,8 @@
 
 .boxess.img-box-left h5 {
     margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .boxess.img-box-left span {
@@ -97,6 +99,8 @@
 .boxess.img-box-right h5 {
     margin: 10px 0 0 0;
     color: black;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .boxess.img-box-right span {

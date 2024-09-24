@@ -5,6 +5,7 @@ import {
   IoIosVideocam,
   IoMdCall,
   IoIosInformationCircle,
+  IoMdSearch,
 } from "react-icons/io";
 import { FaKeyboard } from "react-icons/fa";
 import { TbPhotoVideo } from "react-icons/tb";
@@ -18,6 +19,7 @@ import DocMessage from "../Message/DocMessage";
 import MenuBox from "./MenuBox";
 import ProfileInfo from "../Info/ProfileInfo";
 import CalIInfo from "../Info/CalIInfo";
+import Search from "../Search/Search";
 
 const ChatBox = ({ person }) => {
   const [isChatAvailable, setIsChatAvailable] = useState(true);
@@ -98,6 +100,7 @@ const ChatBox = ({ person }) => {
                   <h2>{person.name}</h2>
                 </div>
                 <div className="chatbox-head-item">
+                  <Search />
                   <p>
                     <IoMdCall onClick={callOpen} />
                   </p>
@@ -163,8 +166,13 @@ const ChatBox = ({ person }) => {
               </button>
             </div>
           </div>
-          <ProfileInfo isActive={profile} profileClose={profileClose} data={person}/>
-          <CalIInfo isActive={call} CallClose={callClose} data={person}/>
+          <ProfileInfo
+            isActive={profile}
+            profileClose={profileClose}
+            data={person}
+          />
+          <CalIInfo isActive={call} CallClose={callClose} data={person} />
+          {/* <SearchBox isActive={search} searchClose={searchClose} data={person}/> */}
         </>
       ) : (
         <div className="chatbox-main">

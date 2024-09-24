@@ -30,7 +30,7 @@
   background-color: #141414;
   border-left: 1px solid #252525;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .chatbox-head img {
@@ -39,6 +39,7 @@
   object-fit: cover;
   border-radius: 25%;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .chatbox-head-detail {
@@ -55,12 +56,16 @@
 
 .chatbox-head-detail h2 {
   margin: 0;
+  cursor: pointer;
 }
 
 .chatbox-head-item svg {
   font-size: 25px;
-  margin-left: 1.5rem;
   cursor: pointer;
+}
+.chatbox-head-item p {
+  margin: 0;
+  margin-left: 1.5rem;
 }
 
 .messanger-box {
@@ -86,7 +91,7 @@
 .messages-received p {
   margin: 0;
   background: rgb(70, 70, 70);
-  padding: 10px 18px;
+  padding: 10px 9px 10px 18px;
   margin: 5px 0px 5px 10px;
   border-radius: 10px;
   display: flex;
@@ -104,6 +109,32 @@
   z-index: 0;
 }
 
+.messages-received p button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+.messages-received p svg {
+  font-size: 18px;
+  margin-left: 8px;
+  color: #aaaaaa;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  color: #fff;
+  background-color: transparent;
+  /* border-color: #565e64; */
+}
+.btn-secondary:focus {
+  color: #fff;
+  background-color: #00000000;
+  border-color: none;
+  box-shadow: none;
+}
+.dropend .dropdown-toggle::after {
+  display: none;
+}
 .messages-received p span {
   font-size: 12px;
   margin-left: 20px;
@@ -129,7 +160,7 @@
   margin: 0;
   background: #f6f8c6;
   color: black;
-  padding: 10px 18px;
+  padding: 10px 18px 10px 9px;
   margin: 5px 12px 5px 0px;
   border-radius: 10px;
 }
@@ -143,6 +174,21 @@
   z-index: 0;
 }
 
+.messages-sent p button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+.dropstart .dropdown-toggle::before {
+  display: none;
+}
+.messages-sent p svg {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #777777;
+  font-weight: 500;
+  cursor: pointer;
+}
 .messages-sent p span {
   font-size: 12px;
   margin-left: 20px;
@@ -157,6 +203,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  z-index: 2;
 }
 
 .message-box-input{
@@ -180,9 +227,9 @@
 
 .message-box input {
   outline: none;
-  padding: 15px 50px;
+  padding: 12px 50px;
   margin: 0 5px;
-  width: 83%;
+  width: 93%;
   border-radius: 10px;
   border: none;
   background-color: rgb(49, 49, 49);
@@ -216,8 +263,8 @@
   padding: 1rem;
   z-index: 2;
   transition: all 0.3s ease-out;
-  height: 180px;
-  width: 180px;
+  height: 200px;
+  width: 200px;
 }
 .menubox{
   position: absolute;

@@ -1,11 +1,13 @@
 import React from 'react'
 import "./profile.css"
+import { IoIosVideocam, IoMdCall ,IoMdArrowBack} from "react-icons/io";
 
 const CalIInfo = ({isActive ,CallClose}) => {
   return (
     <div className={`CalIInfo ${isActive ? 'active' : ''}`}>
-    this is call page
-    <p onClick={CallClose}>X</p>
+      <div className="profileinfo-back">
+          <p onClick={CallClose}><IoMdArrowBack/></p>
+          </div>
   </div>
   )
 }
