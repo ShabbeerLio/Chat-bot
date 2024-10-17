@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Sidebar.css"
 import { MdEdit, MdLogout } from "react-icons/md";
+import noprofile from "../../Assets/noprofile.png";
 
 
 const Setting = ({ item, handleChatItemClick }) => {
@@ -8,7 +9,11 @@ const Setting = ({ item, handleChatItemClick }) => {
         <div className="setting">
             <div className="setting-top">
                 <div className="setting-top-img">
-                    <img src={item.profile_picture} alt="" />
+                    {item.profile_picture ? (
+                        <img src={item.profile_picture} alt="" />
+                    ) : (
+                        <img src={noprofile} alt="" />
+                    )}
                     <MdEdit />
                 </div>
             </div>

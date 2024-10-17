@@ -1,4 +1,5 @@
 import React from 'react'
+import noprofile from "../../Assets/noprofile.png";
 
 const SideContact = ({ item, handleChatItemClick }) => {
     return (
@@ -6,7 +7,11 @@ const SideContact = ({ item, handleChatItemClick }) => {
             key={item.id}
         >
             <div className="chatlist-item-image">
-                <img src={item.profile_picture} alt="" />
+                {item.profile_picture ? (
+                    <img src={item.profile_picture} alt="" />
+                ) : (
+                    <img src={noprofile} alt="" />
+                )}
             </div>
             <div className="chatlist-item-detail">
                 <h4>{item.name}</h4>

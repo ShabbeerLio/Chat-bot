@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
-import "./Home.css";
-import ChatBox from "../Components/ChatBox/ChatBox";
-import PersonData from "../Components/Data/Data";
-import Loader from "../Components/Loader/Loader";
+import "./Home.css"
+import ChatBox from "../../Components/ChatBox/ChatBox";
+import PersonData from "../../Components/Data/Data";
 import {
   IoChatbubbles,
   IoCall,
   IoSettingsSharp,
   IoDuplicateOutline,
 } from "react-icons/io5";
-import Calls from "../Components/Data/Calls";
-import Sidebar from "../Components/Sidebar/Sidebar";
-import SideCalls from "../Components/Sidebar/SideCalls";
-import Setting from "../Components/Sidebar/Setting";
-import SideContact from "../Components/Sidebar/SideContact";
-import PersonalData from "../Components/Data/Personal";
-import ContactData from "../Components/Data/Contact";
-import SkeletonLoader from "../Components/Loader/SkeletonLoader";
-import Search from "../Components/Search/Search";
+import Calls from "../../Components/Data/Calls";
+import Sidebar from "../../Components/Sidebar/Sidebar";
+import SideCalls from "../../Components/Sidebar/SideCalls";
+import Setting from "../../Components/Sidebar/Setting";
+import SideContact from "../../Components/Sidebar/SideContact";
+import PersonalData from "../../Components/Data/Personal";
+import ContactData from "../../Components/Data/Contact";
+import SkeletonLoader from "../../Components/Loader/SkeletonLoader";
+import Search from "../../Components/Search/Search";
 
 const Home = () => {
   const sData = [

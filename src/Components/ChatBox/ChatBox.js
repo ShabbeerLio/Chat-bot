@@ -20,6 +20,7 @@ import MenuBox from "./MenuBox";
 import ProfileInfo from "../Info/ProfileInfo";
 import CalIInfo from "../Info/CalIInfo";
 import Search from "../Search/Search";
+import noprofile from "../../Assets/noprofile.png";
 
 const ChatBox = ({ person }) => {
   const [isChatAvailable, setIsChatAvailable] = useState(true);
@@ -96,7 +97,11 @@ const ChatBox = ({ person }) => {
             <div className="chatbox-head">
               <div className="chatbox-head-detail">
                 <div className="chatbox-head-item" onClick={profileOpen}>
-                  <img src={person.profile_picture} alt="" />
+                  {person.profile_picture ? (
+                    <img src={person.profile_picture} alt="" />
+                  ) : (
+                    <img src={noprofile} alt="" />
+                  )}
                   <h2>{person.name}</h2>
                 </div>
                 <div className="chatbox-head-item">

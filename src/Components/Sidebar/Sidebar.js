@@ -1,4 +1,5 @@
 import React from "react";
+import noprofile from "../../Assets/noprofile.png";
 
 const Sidebar = ({ item, handleChatItemClick }) => {
   return (
@@ -9,12 +10,20 @@ const Sidebar = ({ item, handleChatItemClick }) => {
     >
       {item.online ? (
         <div className="chatlist-item-image">
-          <img src={item.profile_picture} alt="" />
+          {item.profile_picture ? (
+            <img src={item.profile_picture} alt="" />
+          ) : (
+            <img src={noprofile} alt="" />
+          )}
           <span></span>
         </div>
       ) : (
         <div className="chatlist-item-image">
-          <img src={item.profile_picture} alt="" />
+          {item.profile_picture ? (
+            <img src={item.profile_picture} alt="" />
+          ) : (
+            <img src={noprofile} alt="" />
+          )}
         </div>
       )}
       {item.messages[item.messages.length - 1]?.incoming ? (

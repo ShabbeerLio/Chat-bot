@@ -2,6 +2,7 @@ import React from 'react'
 import "./Sidebar.css"
 import { IoIosVideocam, IoMdCall } from "react-icons/io";
 import { MdOutlineCallReceived, MdOutlineCallMade, MdOutlineCallMissed } from "react-icons/md";
+import noprofile from "../../Assets/noprofile.png";
 
 
 const SideCalls = ({ item, handleChatItemClick }) => {
@@ -11,7 +12,11 @@ const SideCalls = ({ item, handleChatItemClick }) => {
             onClick={() => handleChatItemClick(item)}
         >
             <div className="chatlist-item-image">
-                <img src={item.profile_picture} alt="" />
+                {item.profile_picture ? (
+                    <img src={item.profile_picture} alt="" />
+                ) : (
+                    <img src={noprofile} alt="" />
+                )}
             </div>
             <div className="chatlist-item-detail">
                 {item.status === "missed" ? (
