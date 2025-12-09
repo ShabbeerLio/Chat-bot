@@ -1,4 +1,4 @@
-.red{
+.red {
   color: rgb(192, 0, 0);
 }
 .home-main {
@@ -27,7 +27,6 @@
   flex-direction: column;
   border-radius: 0 8px 8px 0;
   background-color: black;
-
 }
 
 .side-left-top {
@@ -90,7 +89,7 @@
 }
 
 .sidebar-heading h1 {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   font-size: 25px;
 }
 
@@ -145,7 +144,6 @@
   margin-left: 15px;
 }
 
-
 .chatlist-item-detail h4 {
   margin: 0;
   font-size: 16px;
@@ -159,7 +157,7 @@
   align-items: center;
 }
 
-.chatlist-item-notic-true{
+.chatlist-item-notic-true {
   color: gray;
   display: flex;
   align-items: flex-end;
@@ -247,11 +245,70 @@
   z-index: 1;
 }
 
-
 /* ..........chatbox..................... */
 .home-chatbox {
   background-color: rgb(31, 31, 31);
   /* padding: 1rem; */
   width: 70%;
   height: 100%;
+}
+
+@media (max-width: 900px) {
+
+  .home-chatbox {
+    width: 100%;
+    display: none;
+  }
+  .home-sidebar {
+    width: 100%;
+    display: none;
+  }
+  .hideitems{
+    display: inline;
+  }
+  .sidebar-left {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    z-index: 99;
+  }
+  .side-left-top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 0;
+  }
+  .side-left-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 0;
+  }
+  .side-left-top svg,
+  .side-left-bottom svg {
+    width: 100%;
+    margin: 0;
+  }
+  .side-bottom-phbook {
+    bottom: 120%;
+  }
+  .side-bottom-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .sidebar-chatlist {
+    padding-bottom: 70px;
+  }
+
+  .modal-content {
+    width: 90% !important;
+  }
 }

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import "./Home.css"
-import ChatBox from "../../Components/ChatBox/ChatBox";
+import React, { useState, useEffect, useContext } from "react";
+import "./Home.css";
+// Assuming PersonData is in "../../Components/Data/Data"
 import PersonData from "../../Components/Data/Data";
 import {
   IoChatbubbles,
@@ -17,13 +17,108 @@ import PersonalData from "../../Components/Data/Personal";
 import ContactData from "../../Components/Data/Contact";
 import SkeletonLoader from "../../Components/Loader/SkeletonLoader";
 import Search from "../../Components/Search/Search";
+import { Check, CheckCheck, ChevronLeft, MoveLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import NoteContext from "../../Context/NikhaContext";
+import defaultimg from "../../Assets/login.png";
+import ChatDetails from "../../Components/ChatBox/ChatDetails";
+import noprofile from "../../Assets/noprofile.png";
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
+  const {
+    userDetail,
+    getAccountDetails,
+    allConnected,
+    getAllConnected,
+    socket,
+    onlineUsers,
+  } = useContext(NoteContext);
+  const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/welcome");
+    } else {
+      getAccountDetails();
+      getAllConnected();
+      setTimeout(() => setLoading(false), 2000);
+    }
+  }, [navigate]);
+
+  // console.log(allConnected,"allConnected")
+  // ✅ Listen for incoming messages in real-time
+  useEffect(() => {
+    if (!socket) return;
+
+    socket.on("receiveMessage", (data) => {
+      console.log("📨 Message received in chat list:", data);
+      getAllConnected(); // 🔁 refresh chat list with latest message
+    });
+
+    return () => {
+      socket.off("receiveMessage");
+    };
+  }, [socket]);
+
+  // Filter users based on search text
+  const filteredUsers =
+    allConnected?.filter((item) =>
+      item?.name?.toLowerCase().includes(search.toLowerCase())
+    ) || [];
+
+  // console.log(filteredUsers, "filteredUsers");
+  // Active users only
+  // const activeUsers = Users.filter((user) => user.active);
+
+  // Format last message time
+  const formatTime = (dateString) => {
+    if (!dateString) return "";
+
+    const date = new Date(dateString);
+    const now = new Date();
+
+    const isToday =
+      date.getDate() === now.getDate() &&
+      date.getMonth() === now.getMonth() &&
+      date.getFullYear() === now.getFullYear();
+
+    const yesterday = new Date();
+    yesterday.setDate(now.getDate() - 1);
+    const isYesterday =
+      date.getDate() === yesterday.getDate() &&
+      date.getMonth() === yesterday.getMonth() &&
+      date.getFullYear() === yesterday.getFullYear();
+
+    const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+
+    if (isToday) {
+      return date.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    } else if (isYesterday) {
+      return "Yesterday";
+    } else if (diffDays < 7) {
+      return date.toLocaleDateString([], { weekday: "long" });
+    } else {
+      return date.toLocaleDateString([], {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+      });
+    }
+  };
+
+  // console.log(allConnected,"allConnected")
+  // console.log(filteredUsers, "filteredUsers");
+
   const sData = [
     {
       id: 1,
       title: "Chat",
-      data: PersonData,
+      data: [], // Will be populated by onlineUsers
     },
     {
       id: 2,
@@ -47,29 +142,55 @@ const Home = () => {
     },
   ];
 
-  const [selectedTab, setSelectedTab] = useState(sData[0].id); // Default to first tab
+  const [selectedTab, setSelectedTab] = useState(sData[0].id);
   const [selectedPerson, setSelectedPerson] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   const handleIconClick = (id) => {
+    // console.log(id,"id")
     setSelectedTab(id);
-    setSelectedPerson(null); // Reset selected person when changing tabs
+    setSelectedPerson(null);
   };
 
-  const handleChatItemClick = (person) => {
-    setSelectedPerson(person);
-    console.log(`Opening chat of ${person.name}`);
+  const [hideItems, setHideItems] = useState(false);
+  const handleChatItemClick = (user) => {
+    setSelectedPerson(user);
+    setHideItems(true);
+    console.log(`Opening chat with ${user.name} (${user._id})`);
   };
-  useEffect(() => {
-    setLoading(true);
-    // Simulate loading time for data
-    setTimeout(() => setLoading(false), 1000);
-  }, [selectedTab]);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() => setLoading(false), 500);
+  // }, [selectedTab, onlineUsers]);
+
+  const getProfilePic = (profilePic, currentUserId) => {
+    if (!profilePic) return noprofile; // fallback
+
+    if (profilePic.isHidden === false && profilePic.url) {
+      return profilePic.url;
+    }
+
+    // if hidden but allowed for this user
+    if (
+      profilePic.isHidden === true &&
+      profilePic.allowedUsers?.includes(currentUserId)
+    ) {
+      return profilePic.url;
+    }
+
+    // otherwise show default hidden image
+    return noprofile;
+  };
+
+  // console.log(userDetail, "userDetail");
+  const imageUrl = getProfilePic(userDetail?.profilePic, noprofile);
 
   return (
     <div className="home">
       <div className="home-main">
-        <div className="home-sidebar">
+        <div
+          className={`home-sidebar ${hideItems === false ? "hideitems" : ""}`}
+        >
           <div className="sidebar-left">
             <div className="side-left-top">
               <IoChatbubbles
@@ -91,7 +212,10 @@ const Home = () => {
                 onClick={() => handleIconClick(4)}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D"
+                  src={
+                    imageUrl ||
+                    "https://static.vecteezy.com/system/resources/previews/008/433/598/non_2x/men-icon-for-website-symbol-presentation-free-vector.jpg"
+                  }
                   alt=""
                   className={selectedTab === 4 ? "active-icon" : ""}
                 />
@@ -111,7 +235,7 @@ const Home = () => {
               <h1>{sData.find((item) => item.id === selectedTab)?.title}</h1>
             </div>
             <div className="sidebar-search">
-              <Search/>
+              <Search search={search} setSearch={setSearch} />
             </div>
             <div className="sidebar-chatlist">
               {loading ? (
@@ -119,10 +243,12 @@ const Home = () => {
               ) : (
                 <>
                   {selectedTab === 1 &&
-                    PersonData.map((item) => (
+                    filteredUsers.map((user) => (
                       <Sidebar
-                        item={item}
+                        key={user._id}
+                        item={user}
                         handleChatItemClick={handleChatItemClick}
+                        formatTime={formatTime}
                       />
                     ))}
                   {selectedTab === 2 &&
@@ -153,22 +279,32 @@ const Home = () => {
                         handleChatItemClick={handleChatItemClick}
                       />
                     ))}
+                  {selectedTab !== 1 &&
+                    selectedTab === 1 &&
+                    PersonData &&
+                    PersonData.map((item) => (
+                      <Sidebar
+                        item={item}
+                        handleChatItemClick={handleChatItemClick}
+                        formatTime={formatTime}
+                      />
+                    ))}
                 </>
               )}
             </div>
           </div>
         </div>
-        <div className="home-chatbox">
+        <div
+          className={`home-chatbox ${hideItems === true ? "hideitems" : ""}`}
+        >
           {selectedPerson ? (
             <>
-              <ChatBox person={selectedPerson} />
+              <ChatDetails person={selectedPerson} socket={socket} />
             </>
           ) : (
             <div className="chatbox-main">
               <h2>{sData.find((item) => item.id === selectedTab)?.title}</h2>
-              <p>
-                Send and receive messages without keeping your phone online.
-              </p>
+              <p>Select a user to start chatting.</p>
             </div>
           )}
         </div>
