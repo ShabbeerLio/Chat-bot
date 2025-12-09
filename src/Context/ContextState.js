@@ -14,6 +14,7 @@ const ContextState = (props) => {
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [notification, setNotifications] = useState([]);
   const [plans, setPlans] = useState([]);
+  const [callHistory, setCallHistory] = useState(userData);
 
   // Get getAccount detail
   const getAccountDetails = async () => {
@@ -54,6 +55,18 @@ const ContextState = (props) => {
     const json = await response.json();
     // console.log(json, "json");
     setPlans(json);
+  };
+  const getCallHistory = async () => {
+    const response = await fetch(`${Host}/api/call/all`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
+    const json = await response.json();
+    // console.log(json, "json");
+    setCallHistory(json);
   };
 
   // Get getAccount detail
@@ -125,6 +138,9 @@ const ContextState = (props) => {
 
         getPlans,
         plans,
+
+        callHistory,
+        getCallHistory,
       }}
     >
       {props.children}

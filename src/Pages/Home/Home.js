@@ -23,6 +23,7 @@ import NoteContext from "../../Context/NikhaContext";
 import defaultimg from "../../Assets/login.png";
 import ChatDetails from "../../Components/ChatBox/ChatDetails";
 import noprofile from "../../Assets/noprofile.png";
+import Host from "../../Host/Host";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -33,6 +34,8 @@ const Home = () => {
     getAllConnected,
     socket,
     onlineUsers,
+    callHistory,
+        getCallHistory,
   } = useContext(NoteContext);
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
@@ -43,6 +46,7 @@ const Home = () => {
     } else {
       getAccountDetails();
       getAllConnected();
+      getCallHistory();
       setTimeout(() => setLoading(false), 2000);
     }
   }, [navigate]);
@@ -184,6 +188,17 @@ const Home = () => {
 
   // console.log(userDetail, "userDetail");
   const imageUrl = getProfilePic(userDetail?.profilePic, noprofile);
+  // const [callHistory, setHistory] = useState([]);
+
+  // useEffect(() => {
+  //   fetch(`${Host}/api/call/all`, {
+  //     headers: { "auth-token": localStorage.getItem("token") },
+  //   })
+  //     .then((res) => res.json())
+  //     .then(setHistory);
+  // }, []);
+
+  console.log(callHistory,"callHistory")
 
   return (
     <div className="home">
@@ -252,10 +267,12 @@ const Home = () => {
                       />
                     ))}
                   {selectedTab === 2 &&
-                    Calls.map((item) => (
+                    callHistory.map((item) => (
                       <SideCalls
                         item={item}
                         handleChatItemClick={handleChatItemClick}
+                        userDetail={userDetail}
+                        formatTime={formatTime}
                       />
                     ))}
                   {selectedTab === 3 &&
@@ -299,7 +316,12 @@ const Home = () => {
         >
           {selectedPerson ? (
             <>
-              <ChatDetails person={selectedPerson} socket={socket} />
+              <ChatDetails
+                person={selectedPerson}
+                setHideItems={setHideItems}
+                socket={socket}
+                formatTime={formatTime}
+              />
             </>
           ) : (
             <div className="chatbox-main">
