@@ -17,13 +17,20 @@ import PersonalData from "../../Components/Data/Personal";
 import ContactData from "../../Components/Data/Contact";
 import SkeletonLoader from "../../Components/Loader/SkeletonLoader";
 import Search from "../../Components/Search/Search";
-import { Check, CheckCheck, ChevronLeft, MoveLeft } from "lucide-react";
+import {
+  Check,
+  CheckCheck,
+  ChevronLeft,
+  MoveLeft,
+  UserRound,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import NoteContext from "../../Context/NikhaContext";
 import defaultimg from "../../Assets/login.png";
 import ChatDetails from "../../Components/ChatBox/ChatDetails";
 import noprofile from "../../Assets/noprofile.png";
 import Host from "../../Host/Host";
+import LoaderItem from "../../Components/Loading/LoaderItem";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -35,7 +42,7 @@ const Home = () => {
     socket,
     onlineUsers,
     callHistory,
-        getCallHistory,
+    getCallHistory,
   } = useContext(NoteContext);
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
@@ -198,7 +205,7 @@ const Home = () => {
   //     .then(setHistory);
   // }, []);
 
-  console.log(callHistory,"callHistory")
+  console.log(callHistory, "callHistory");
 
   return (
     <div className="home">
@@ -226,14 +233,15 @@ const Home = () => {
                 className="side-bottom-profile"
                 onClick={() => handleIconClick(4)}
               >
-                <img
+                <UserRound className={selectedTab === 4 ? "active-icon" : ""} />
+                {/* <img
                   src={
                     imageUrl ||
                     "https://static.vecteezy.com/system/resources/previews/008/433/598/non_2x/men-icon-for-website-symbol-presentation-free-vector.jpg"
                   }
                   alt=""
                   className={selectedTab === 4 ? "active-icon" : ""}
-                />
+                /> */}
               </div>
               <div
                 className="side-bottom-phbook"
@@ -247,6 +255,9 @@ const Home = () => {
           </div>
           <div className="sidebar">
             <div className="sidebar-heading">
+              <div className="sidebar-logo">
+                <LoaderItem />
+              </div>
               <h1>{sData.find((item) => item.id === selectedTab)?.title}</h1>
             </div>
             <div className="sidebar-search">

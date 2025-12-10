@@ -4,10 +4,17 @@
   margin-bottom: 2rem;
 }
 
-.illustration img {
-  width: 45%;
-  object-fit: cover;
+.illustration{
+  position: relative;
   margin-bottom: 1rem;
+}
+.illustration .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  display: flex;
+  margin: 0.25em 0;
 }
 
 .page-box {

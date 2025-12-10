@@ -18,6 +18,15 @@
   position: relative;
 }
 
+/* .sidebar-logo{
+  position: relative;
+} */
+.sidebar-logo .loader{
+  width: 15%;
+top: 0;
+transform: translate(-50%, -0%);
+}
+
 .sidebar-left {
   height: 100%;
   width: 15%;

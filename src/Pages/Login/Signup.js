@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
 import img1 from "../../Assets/register.png";
-import logo from "../../Assets/Logo/logo.png";
 import { ChevronLeft, X } from "lucide-react";
 import male from "../../Assets/male.png";
 import female from "../../Assets/female.png";
@@ -214,7 +213,7 @@ const Signup = () => {
     <div className="sign-page">
       <div className={`signup-top ${loading ? "loading" : ""}`}>
         <span>Find exactly the</span>
-        <h5>Right Partner for you!</h5>
+        {/* <h5>Right Partner for you!</h5> */}
         <img className="signup-logo" src={logo} alt="" />
         {!loading ? (
           <>

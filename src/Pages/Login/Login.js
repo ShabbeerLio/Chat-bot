@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import imag1 from "../../Assets/login.png";
 import Host from "../../Host/Host";
 import Loading from "../../Components/Loading/Loading"
 
